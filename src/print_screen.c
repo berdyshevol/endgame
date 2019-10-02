@@ -54,8 +54,10 @@ void window_cards_update(app *game) {
 		}
 	}
 
-	if(mx_is_game_over(game) == true)
+	if(mx_is_game_over(game) == true) {
+		game->game_finnished = true;
 		SDL_BlitSurface(game->game_over, NULL, game->srf, &(game->game_over->clip_rect));
+	}
 	SDL_BlitSurface(game->plr[0].face, NULL, game->srf, &(game->plr[0].face->clip_rect));
 	SDL_BlitSurface(game->plr[1].face, NULL, game->srf, &(game->plr[1].face->clip_rect));
 

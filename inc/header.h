@@ -18,6 +18,7 @@
 #include <SDL2_image/SDL_image.h>
 #include <SDL2_ttf/SDL_ttf.h>
 #include <SDL2_mixer/SDL_mixer.h>
+//#include "SDL_mixer.h"
 #include <time.h>
 
 
@@ -85,6 +86,8 @@ typedef struct application {
 	SDL_Surface *srf;
 	SDL_Surface *close;
 	SDL_Surface *game_over;
+	SDL_Surface *menu_btn;
+
 	plyr	plr[NUMBER_OF_PLAYERS];
 	int		cur_plr;
 	//plyr	plr2;
@@ -96,10 +99,15 @@ typedef struct application {
 	SDL_Surface *background;
 	int		OFFSET_X;
 	int 	OFFSET_Y;
-
+	Mix_Music *backgroundSound;
+	Mix_Chunk *correct;
 	TTF_Font *font;
 	bool	start_game;
 	game_menu	menu;
+	bool	game_finnished;
+
+
+
 
 } app;
 

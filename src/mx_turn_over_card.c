@@ -76,6 +76,7 @@ void	mx_turn_over_card(app *game, int x, int y) {
 	if (mx_how_much_open(game) == game->OPN_CRDS_NBR){
 		if (mx_is_same_ctgr(game)){//if true => score if faulse => change player && try--; //
 			//mx_add_score(app *game);
+			Mix_PlayChannel(-1, game->correct, 0);
 			mx_remove_open_cards(game);
 			mx_close_all_cards(game);
 			(game->plr[game->cur_plr].score)++;

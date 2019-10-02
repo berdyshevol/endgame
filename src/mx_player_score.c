@@ -30,7 +30,7 @@ char *itoa(int i, char b[])
 
 
 void players_score(app *game) {
-    printf("score1=%d score2=%d current=%d\n", game->plr[0].score, game->plr[1].score, game->cur_plr);
+    //printf("score1=%d score2=%d current=%d\n", game->plr[0].score, game->plr[1].score, game->cur_plr);
     int max_w;
 	int max_h;
 	SDL_GetWindowSize(game->win, &max_w, &max_h);
@@ -39,12 +39,15 @@ void players_score(app *game) {
     SDL_Color textColOFF =  {204, 102, 0, 0};
     SDL_Color textCol0 = textColOFF;
     SDL_Color textCol1 = textColOFF;
+
     //for (int i = 0; i < NUMBER_OF_PLAYERS; i++) {
-    if (game->cur_plr == 0) {
-        textCol0 = textColON;
-    }
-    else {
-        textCol1 = textColON;
+    if (!game->game_finnished) {
+        if (game->cur_plr == 0) {
+            textCol0 = textColON;
+        }
+        else {
+            textCol1 = textColON;
+        }
     }
 
     char text0[100] = "First player's score: ";

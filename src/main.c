@@ -12,8 +12,9 @@ void mx_init_sdl(app *game) {
 	if (game->srf == NULL)
 		mx_errorexit("SDL");
 
-    if (Mix_OpenAudio(44100, MIX_DEFAULT_FORMAT, 2, 2048) == -1)
-	 	mx_errorexit("SDL");
+    // if (Mix_OpenAudio(44100, MIX_DEFAULT_FORMAT, 2, 2048) != 0)
+	//  	mx_errorexit("SDL");
+	Mix_OpenAudio(44100, MIX_DEFAULT_FORMAT, 2, 2048);
 	
 	if(TTF_Init() == -1)
 		mx_errorexit("SDL");
@@ -32,6 +33,10 @@ int main() {
 
 	mx_app_loop(game);
 //	system("leaks -q endgame");
+	SDL_DestroyWindow(game->win);
+	Mix_FreeMusic(game->backgroundSound);
+	Mix_CloseAudio();
+	SDL_Quit();
 	return 0;
 }
 

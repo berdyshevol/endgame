@@ -154,6 +154,7 @@ void mx_set_start_val(app *game){
 	game->plr[0].score = 0;
 	game->plr[1].score = 0;
 	game->cur_plr = 0;
+	game->game_finnished = false;
 	// game->plr1.try = 3;
 	// game->plr2.try = 3;
 //	game->OPN_CRDS_NBR = 3;

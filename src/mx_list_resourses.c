@@ -49,9 +49,15 @@ char **mx_list_resourses(app *game){
 	game->background->clip_rect.x = 0;
 	game->background->clip_rect.y = 0;
 
+	game->menu_btn = IMG_Load("./res/pictures/plus.jpg");
+	if (game->menu_btn == NULL)
+		mx_errorexit("SDL");
+	game->menu_btn->clip_rect.x = 30;
+	game->menu_btn->clip_rect.y = 30;
+
 	game->start_game = false;
 
-	game->font = TTF_OpenFont("./res/fonts/tahoma/TAHOMAB0.TTF", 25);
+	game->font = TTF_OpenFont("./res/fonts/tahoma/TAHOMAB0.TTF", 30);
 	if (!game->font)
 		mx_errorexit("SDL");
 
@@ -77,8 +83,16 @@ char **mx_list_resourses(app *game){
 	if (game->game_over == NULL)
 		mx_errorexit("SDL");
 	
-	// Mix_Music *backgroundSound = NULL;
-    //     backgroundSound = Mix_LoadMUS("res/music.mp3");
+	game->backgroundSound = Mix_LoadMUS("res/music/music.mp3");
+	if (game->backgroundSound == NULL)
+		mx_errorexit("SDL");
+	Mix_VolumeMusic(MIX_MAX_VOLUME/30);
+	Mix_PlayMusic(game->backgroundSound, -1);
+
+	game->correct = Mix_LoadWAV("res/music/correct.mp3");
+	if (game->correct == NULL)
+		mx_errorexit("SDL");
+	Mix_VolumeChunk(game->correct, MIX_MAX_VOLUME/10);
 
 	return (str);
 
