@@ -17,6 +17,7 @@
 #include <SDL2/SDL.h>
 #include <SDL2_image/SDL_image.h>
 #include <SDL2_ttf/SDL_ttf.h>
+#include <SDL_mixer.h>
 #include <time.h>
 
 
@@ -35,7 +36,7 @@
 //#define LEN_ARR (16)
 //#define OPN_CRDS_NBR (3)
 #define NUMBER_OF_PLAYERS (2)
-#define SECONDS_OPEN (5000)
+#define SECONDS_OPEN (3000)
 
 
 #define ANIMALS (1)
@@ -47,6 +48,9 @@
 void mx_errorexit(char *str);
 void mx_printerror(char *str);
 
+typedef struct _Mix_Music Mix_Music;
+typedef struct Mix_Chunk Mix_Chunk;
+
 typedef struct card {
 	bool	open;
 	bool	print;
@@ -57,12 +61,16 @@ typedef struct card {
 } cards;
 
 typedef struct  menu{
+	SDL_Surface	*txt0;
 	SDL_Surface	*txt1;
 	SDL_Surface	*txt2;
 	SDL_Surface	*txt3;
-	SDL_Surface	*txt4;
+
+	SDL_Surface	*choose_level;
+	
 	TTF_Font *font;
-}game_menu ;
+	TTF_Font *choose_level_font;
+} game_menu ;
 
 typedef struct player {
 	int 	score;
@@ -110,6 +118,6 @@ void	mx_open_all_cards(app *game);
 void	mx_close_all_cards(app *game);
 bool	is_choose_level(SDL_Surface *txt, int x, int y);
 void	mx_start_game(app *game);
-void print_menu(app *game);
+void	print_menu(app *game);
 
 #endif

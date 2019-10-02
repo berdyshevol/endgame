@@ -27,10 +27,16 @@ void mx_app_loop(app *game){
 		else{
 			print_menu(game);
 			if (click == true) {
+				if(is_choose_level(game->menu.txt0, x, y)){
+					game->OPN_CRDS_NBR = 2;
+					game->H = 4;
+					game->W = 6;
+					mx_start_game(game);
+				}
 				if(is_choose_level(game->menu.txt1, x, y)){
 					game->OPN_CRDS_NBR = 3;
 					game->H = 3;
-					game->W = 6;
+					game->W = 5;
 					mx_start_game(game);
 				}
 				if(is_choose_level(game->menu.txt2, x, y)){
@@ -45,12 +51,7 @@ void mx_app_loop(app *game){
 					game->W = 4;
 					mx_start_game(game);
 				}
-				if(is_choose_level(game->menu.txt4, x, y)){
-					game->OPN_CRDS_NBR = 2;
-					game->H = 4;
-					game->W = 6;
-					mx_start_game(game);
-				}
+				
 			}
 		}
 		//window_players_update(game);

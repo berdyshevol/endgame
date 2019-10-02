@@ -12,8 +12,9 @@ void mx_init_sdl(app *game) {
 	if (game->srf == NULL)
 		mx_errorexit("SDL");
 
-//	if (Mix_OpenAudio(44100, MIX_DEFAULT_FORMAT, 2, 1024) == -1)
-//		mx_errorexit("SDL");
+    // if (Mix_OpenAudio(44100, MIX_DEFAULT_FORMAT, 2, 2048) == -1)
+	//  	mx_errorexit("SDL");
+	
 	if(TTF_Init() == -1)
 		mx_errorexit("SDL");
 	
@@ -25,8 +26,12 @@ void mx_init_sdl(app *game) {
 	time_t t;
 	srand( time(&t));
 	//-------------------------------------
-	game->menu.font = TTF_OpenFont("./res/tahoma/TAHOMAB0.TTF", 100);
+	game->menu.font = TTF_OpenFont("./res/tahoma/TAHOMAB0.TTF", 80);
 	if (!game->menu.font)
+		mx_errorexit("SDL");
+
+	game->menu.choose_level_font = TTF_OpenFont("./res/tahoma/TAHOMAB0.TTF", 120);
+	if (!game->menu.choose_level_font)
 		mx_errorexit("SDL");
 }
 

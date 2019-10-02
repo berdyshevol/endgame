@@ -15,21 +15,27 @@ void print_menu(app *game) {
 	SDL_memset(game->srf->pixels, 0, game->srf->h * game->srf->pitch);
 	SDL_BlitSurface(game->background, NULL, game->srf, &(game->background->clip_rect));
 
-	game->menu.txt4->clip_rect.y = WINDOW_HEIGHT/2 -250;
-	game->menu.txt4->clip_rect.x = (WINDOW_WIDTH / 2) - (game->menu.txt1->clip_rect.w / 2);
-	SDL_BlitSurface(game->menu.txt4, NULL, game->srf, &(game->menu.txt4->clip_rect));
+	game->menu.choose_level->clip_rect.y = WINDOW_HEIGHT/2 -500;
+	game->menu.choose_level->clip_rect.x = (WINDOW_WIDTH / 2) - (game->menu.choose_level->clip_rect.w / 2);
+	SDL_BlitSurface(game->menu.choose_level, NULL, game->srf, &(game->menu.choose_level->clip_rect));
+
+	game->menu.txt0->clip_rect.y = WINDOW_HEIGHT/2 -300;
+	game->menu.txt0->clip_rect.x = (WINDOW_WIDTH / 2) - (game->menu.txt0->clip_rect.w / 2);
+	SDL_BlitSurface(game->menu.txt0, NULL, game->srf, &(game->menu.txt0->clip_rect));
+
+	game->menu.txt1->clip_rect.y = WINDOW_HEIGHT/2 - 150;
+	game->menu.txt1->clip_rect.x = (WINDOW_WIDTH / 2) - (game->menu.txt1->clip_rect.w / 2);
+	SDL_BlitSurface(game->menu.txt1, NULL, game->srf, &(game->menu.txt1->clip_rect));
 
 	game->menu.txt2->clip_rect.x = (WINDOW_WIDTH / 2) - (game->menu.txt2->clip_rect.w / 2);
-	game->menu.txt2->clip_rect.y = WINDOW_HEIGHT/2 -150;
+	game->menu.txt2->clip_rect.y = WINDOW_HEIGHT/2 + 0;
 	SDL_BlitSurface(game->menu.txt2, NULL, game->srf, &(game->menu.txt2->clip_rect));
 
-	game->menu.txt3->clip_rect.y = WINDOW_HEIGHT/2 +50;
+	game->menu.txt3->clip_rect.y = WINDOW_HEIGHT/2 + 150;
 	game->menu.txt3->clip_rect.x = (WINDOW_WIDTH / 2) - (game->menu.txt3->clip_rect.w / 2);
 	SDL_BlitSurface(game->menu.txt3, NULL, game->srf, &(game->menu.txt3->clip_rect));
 
-	game->menu.txt1->clip_rect.y = WINDOW_HEIGHT/2 - 50;
-	game->menu.txt1->clip_rect.x = (WINDOW_WIDTH / 2) - (game->menu.txt4->clip_rect.w / 2);
-	SDL_BlitSurface(game->menu.txt1, NULL, game->srf, &(game->menu.txt1->clip_rect));
+	
 
 	SDL_UpdateWindowSurface(game->win);
 }

@@ -51,14 +51,21 @@ char **mx_list_resourses(app *game){
 
 	game->start_game = false;
 	SDL_Color text_clr =  {153, 45, 0, 0};
+	game->menu.txt0 = TTF_RenderText_Solid(game->menu.font, "2 cards (4 x 6)", text_clr);
 	game->menu.txt1 = TTF_RenderText_Solid(game->menu.font, "3 cards (3 x 6)", text_clr);
 	game->menu.txt2 = TTF_RenderText_Solid(game->menu.font, "3 cards (5 x 6)", text_clr);
 	game->menu.txt3 = TTF_RenderText_Solid(game->menu.font, "4 cards (4 x 4)", text_clr);
-	game->menu.txt4 = TTF_RenderText_Solid(game->menu.font, "2 cards (4 x 6)", text_clr);
+
+	SDL_Color text_clr_choose_level =  {0, 102, 0, 0};
+	game->menu.choose_level = TTF_RenderText_Solid(game->menu.choose_level_font, "Choose level", text_clr_choose_level);
+	
 
 	game->game_over = IMG_Load("res/game_over.jpg");
 	if (game->game_over == NULL)
 		mx_errorexit("SDL");
+	
+	// Mix_Music *backgroundSound = NULL;
+    //     backgroundSound = Mix_LoadMUS("res/music.mp3");
 
 	return (str);
 

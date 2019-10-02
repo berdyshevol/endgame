@@ -71,10 +71,13 @@ void mx_download_pics(app *game, int *temp_arr) {
 	// exit(0);
 }
 
-void mx_fill_coordinates(app *game, int w, int h) {
+void mx_fill_coordinates(app *game) {
 	int max_w;
 	int max_h;
 	SDL_GetWindowSize(game->win, &max_w, &max_h);
+
+	int w = game->W;
+	int h = game->H;
 
 	game->OFFSET_X = (max_w - (200 + 20) * w) / 2;
 	game->OFFSET_Y = (max_h - (200 + 20) * h) / 2 + 30;
@@ -95,10 +98,10 @@ bool is_in_arr(int *arr, int size, int new_item) {
 	return false;
 }
 
-void mx_fill_arr(app *game, int len_W, int len_H) {
-	game->LEN_ARR = len_W * len_H;
-	game->W = len_W;
-	game->H = len_H;
+void mx_fill_arr(app *game) {
+	game->LEN_ARR = game->W * game->H;
+	//game->W = len_W;
+	//game->H = len_H;
 	//printf("%d\n", game->LEN_ARR);
 	
 	//создать временный массив из каждого по 3
@@ -139,7 +142,7 @@ void mx_fill_arr(app *game, int len_W, int len_H) {
 	// заскачать фото
 	mx_download_pics(game, temp_arr);
 	// заполнить координаты
-	mx_fill_coordinates(game, len_W, len_H);
+	mx_fill_coordinates(game);
 	free(temp_arr);
 
 }
@@ -155,14 +158,14 @@ void mx_set_start_val(app *game){
 	// game->plr2.try = 3;
 //	game->OPN_CRDS_NBR = 3;
 
-	int len_W = game->W;
-	int len_H = game->H;
+	// int len_W = game->W;
+	// int len_H = game->H;
 	//game->LEN_ARR = len_W * len_H;   /// ------------????????????
 
 	// mx_set_greed(game, CARDS_ARR_NUMBER);
 	// mx_set_random(game->arr, CARDS_ARR_NUMBER);
 	// mx_set_coordinate(game->arr, len_W, len_H);	//rows and col
 
-	mx_fill_arr(game, len_W, len_H);
+	mx_fill_arr(game);
 }
 
