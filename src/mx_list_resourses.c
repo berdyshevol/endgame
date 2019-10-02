@@ -49,7 +49,7 @@ char **mx_list_resourses(app *game){
 	game->background->clip_rect.x = 0;
 	game->background->clip_rect.y = 0;
 
-	game->menu_btn = IMG_Load("./res/pictures/plus.jpg");
+	game->menu_btn = IMG_Load("./res/pictures/plus.png");
 	if (game->menu_btn == NULL)
 		mx_errorexit("SDL");
 	game->menu_btn->clip_rect.x = 30;

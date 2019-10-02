@@ -56,7 +56,7 @@ void players_score(app *game) {
     mx_strcat(text0, score0);
     game->plr[0].face = TTF_RenderText_Solid(game->font, text0, textCol0);
     game->plr[0].face->clip_rect.x = max_w / 2 - 400;
-    game->plr[0].face->clip_rect.y = 10;
+    game->plr[0].face->clip_rect.y = 30;
     //}
     char text1[100] = "Second player's score: ";
     char *score1 = mx_strnew(5);
@@ -64,7 +64,7 @@ void players_score(app *game) {
     mx_strcat(text1, score1);
     game->plr[1].face = TTF_RenderText_Solid(game->font, text1, textCol1);
     game->plr[1].face->clip_rect.x = max_w / 2 + 100;
-    game->plr[1].face->clip_rect.y = 10;
+    game->plr[1].face->clip_rect.y = 30;
 
     free(score0);
     free(score1);
