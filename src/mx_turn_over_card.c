@@ -60,7 +60,6 @@ void	mx_remove_open_cards(app *game)
 		if (game->arr[i].open == true){
 			game->arr[i].print = false;
 		}
-//		arr[i].open = false;
 	}
 }
 
@@ -71,7 +70,7 @@ void next_player(app *game) {
 }
 
 bool click_menu_btn(int x , int y) {
-	if (x >= 30 && x <= 60 && y >= 30 && y <= 60)
+	if (x >= 30 && x <= 30 + MENU_BTN_SIZE_X && y >= 30 && y <= 30 + MENU_BTN_SIZE_Y)
 		return true;
 	return false;
 }
@@ -84,8 +83,7 @@ void	mx_turn_over_card(app *game, int x, int y) {
 	mx_click_card(game, x, y);
 	window_cards_update(game);
 	if (mx_how_much_open(game) == game->OPN_CRDS_NBR){
-		if (mx_is_same_ctgr(game)){//if true => score if faulse => change player && try--; //
-			//mx_add_score(app *game);
+		if (mx_is_same_ctgr(game)){
 			Mix_PlayChannel(-1, game->correct, 0);
 			mx_remove_open_cards(game);
 			mx_close_all_cards(game);
@@ -95,15 +93,10 @@ void	mx_turn_over_card(app *game, int x, int y) {
 
 		}
 		else{
-			//printf("wrong type\n");
-			
 			mx_close_all_cards(game);
-			//printf("try-- if (try == 0) change player \n\n");
 			next_player(game);
 			SDL_Delay(500);
 		}
 	}
-	//window_cards_update(game);
-	//players_score(game);
 }
 

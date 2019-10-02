@@ -54,7 +54,6 @@ void mx_app_loop(app *game){
 				
 			}
 		}
-		//window_players_update(game);
 	}
 }
 

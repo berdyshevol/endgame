@@ -12,9 +12,8 @@ void mx_init_sdl(app *game) {
 	if (game->srf == NULL)
 		mx_errorexit("SDL");
 
-    // if (Mix_OpenAudio(44100, MIX_DEFAULT_FORMAT, 2, 2048) != 0)
-	//  	mx_errorexit("SDL");
-	Mix_OpenAudio(44100, MIX_DEFAULT_FORMAT, 2, 2048);
+    if (Mix_OpenAudio(44100, MIX_DEFAULT_FORMAT, 2, 2048) != 0)
+	  	mx_errorexit("SDL");
 	
 	if(TTF_Init() == -1)
 		mx_errorexit("SDL");

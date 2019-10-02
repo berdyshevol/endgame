@@ -65,10 +65,6 @@ void mx_download_pics(app *game, int *temp_arr) {
 		game->arr[i].open = false;
 		game->arr[i].pos = game->arr[i].face->clip_rect;
 	}
-	// for (int i = 0; i < game->LEN_ARR; i++) {
-	// 	printf("%d) img_num=%d type=%d\n", i, temp_arr[i], game->arr[i].type);
-	// }
-	// exit(0);
 }
 
 void mx_fill_coordinates(app *game) {
@@ -100,9 +96,6 @@ bool is_in_arr(int *arr, int size, int new_item) {
 
 void mx_fill_arr(app *game) {
 	game->LEN_ARR = game->W * game->H;
-	//game->W = len_W;
-	//game->H = len_H;
-	//printf("%d\n", game->LEN_ARR);
 	
 	//создать временный массив из каждого по 3
 	int *temp_arr = malloc(sizeof(int) * game->LEN_ARR);
@@ -125,9 +118,6 @@ void mx_fill_arr(app *game) {
 		if (category > CARDS_ARR_NUMBER / 6 - 1)
 			category = 0;
 	}
-	// for (int i = 0; i < game->LEN_ARR ; i++)
-	// 	printf("(%d) %d, ",i , temp_arr[i]);
-	// exit(0);
 
 	// перемешать
 	for (int i = 0; i < game->LEN_ARR; i++) {
@@ -148,25 +138,11 @@ void mx_fill_arr(app *game) {
 }
 
 void mx_set_start_val(app *game){
-
-	// game->plr1.score = 0;
-	// game->plr2.score = 0;
 	game->plr[0].score = 0;
 	game->plr[1].score = 0;
 	game->cur_plr = 0;
 	game->game_finnished = false;
-	// game->plr1.try = 3;
-	// game->plr2.try = 3;
-//	game->OPN_CRDS_NBR = 3;
-
-	// int len_W = game->W;
-	// int len_H = game->H;
-	//game->LEN_ARR = len_W * len_H;   /// ------------????????????
-
-	// mx_set_greed(game, CARDS_ARR_NUMBER);
-	// mx_set_random(game->arr, CARDS_ARR_NUMBER);
-	// mx_set_coordinate(game->arr, len_W, len_H);	//rows and col
-
+	players_score(game);
 	mx_fill_arr(game);
 }
 

@@ -13,7 +13,8 @@
 //#include <SDL2/SDL_image.h>
 //#include <SDL2/SDL_ttf.h>
 
-#include <SDL2/SDL_timer.h>
+//#include <SDL2/SDL_timer.h>
+//#include "SDL2/SDL.h"
 #include <SDL2/SDL.h>
 #include <SDL2_image/SDL_image.h>
 #include <SDL2_ttf/SDL_ttf.h>
@@ -38,6 +39,8 @@
 //#define OPN_CRDS_NBR (3)
 #define NUMBER_OF_PLAYERS (2)
 #define SECONDS_OPEN (3000)
+#define MENU_BTN_SIZE_X (100)
+#define MENU_BTN_SIZE_Y (100)
 
 
 #define ANIMALS (1)
@@ -87,6 +90,8 @@ typedef struct application {
 	SDL_Surface *close;
 	SDL_Surface *game_over;
 	SDL_Surface *menu_btn;
+	SDL_Surface *arrow_first;
+	SDL_Surface *arrow_second;
 
 	plyr	plr[NUMBER_OF_PLAYERS];
 	int		cur_plr;

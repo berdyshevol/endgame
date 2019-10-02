@@ -49,15 +49,24 @@ char **mx_list_resourses(app *game){
 	game->background->clip_rect.x = 0;
 	game->background->clip_rect.y = 0;
 
-	game->menu_btn = IMG_Load("./res/pictures/plus.png");
+	game->menu_btn = IMG_Load("./res/pictures/menu.bmp");
 	if (game->menu_btn == NULL)
 		mx_errorexit("SDL");
 	game->menu_btn->clip_rect.x = 30;
 	game->menu_btn->clip_rect.y = 30;
 
+	game->arrow_second = IMG_Load("./res/pictures/right_arrow.bmp");
+	if (game->arrow_second == NULL)
+		mx_errorexit("SDL");
+	
+	game->arrow_first = IMG_Load("./res/pictures/left_arrow.bmp");
+	if (game->arrow_first == NULL)
+		mx_errorexit("SDL");
+		
+
 	game->start_game = false;
 
-	game->font = TTF_OpenFont("./res/fonts/tahoma/TAHOMAB0.TTF", 30);
+	game->font = TTF_OpenFont("./res/fonts/tahoma/TAHOMAB0.TTF", 40);
 	if (!game->font)
 		mx_errorexit("SDL");
 

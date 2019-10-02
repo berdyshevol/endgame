@@ -30,7 +30,6 @@ char *itoa(int i, char b[])
 
 
 void players_score(app *game) {
-    //printf("score1=%d score2=%d current=%d\n", game->plr[0].score, game->plr[1].score, game->cur_plr);
     int max_w;
 	int max_h;
 	SDL_GetWindowSize(game->win, &max_w, &max_h);
@@ -49,15 +48,22 @@ void players_score(app *game) {
             textCol1 = textColON;
         }
     }
+    // location of arrow
+    game->arrow_first->clip_rect.x = max_w / 2 - 40;
+    game->arrow_first->clip_rect.y = 20;
+    game->arrow_second->clip_rect.x = max_w / 2 - 40;
+    game->arrow_second->clip_rect.y = 20;
 
+    // First player's score
     char text0[100] = "First player's score: ";
     char *score0 = mx_strnew(5);
     itoa(game->plr[0].score, score0);
     mx_strcat(text0, score0);
     game->plr[0].face = TTF_RenderText_Solid(game->font, text0, textCol0);
-    game->plr[0].face->clip_rect.x = max_w / 2 - 400;
+    game->plr[0].face->clip_rect.x = max_w / 2 - 550;
     game->plr[0].face->clip_rect.y = 30;
     //}
+    // Second player's score
     char text1[100] = "Second player's score: ";
     char *score1 = mx_strnew(5);
     itoa(game->plr[1].score, score1);

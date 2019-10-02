@@ -6,11 +6,12 @@ void	mx_start_game(app *game){
 
 	mx_set_start_val(game);
 	//---------------make open all cards before start to play
-	mx_open_all_cards(game);
-	window_cards_update(game);
-	SDL_Delay(SECONDS_OPEN);
+	// mx_open_all_cards(game);
+	// window_cards_update(game);
+	// SDL_Delay(SECONDS_OPEN);
 	mx_close_all_cards(game);
 	window_cards_update(game);
+	SDL_Delay(500);
 	//----------------------------
 }
 
