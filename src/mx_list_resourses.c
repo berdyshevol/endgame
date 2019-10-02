@@ -1,7 +1,6 @@
 #include "header.h"
 
-char **mx_list_resourses(app *game){
-
+char **mx_list_resourses(app *game) {
 	(void)game;
 	char **str = (char**)malloc(sizeof(char*)*CARDS_ARR_NUMBER);
 	str[0] = "./res/pictures/animals/anim1.jpg";
@@ -62,8 +61,7 @@ char **mx_list_resourses(app *game){
 	game->arrow_first = IMG_Load("./res/pictures/left_arrow.bmp");
 	if (game->arrow_first == NULL)
 		mx_errorexit("SDL");
-		
-
+	
 	game->start_game = false;
 
 	game->font = TTF_OpenFont("./res/fonts/tahoma/TAHOMAB0.TTF", 40);
@@ -78,16 +76,15 @@ char **mx_list_resourses(app *game){
 	if (!game->menu.choose_level_font)
 		mx_errorexit("SDL");
 	
-	SDL_Color text_clr =  {153, 45, 0, 0};
+	SDL_Color text_clr = {153, 45, 0, 0};
 	game->menu.txt0 = TTF_RenderText_Solid(game->menu.font, "2 cards (4 x 6)", text_clr);
 	game->menu.txt1 = TTF_RenderText_Solid(game->menu.font, "3 cards (3 x 6)", text_clr);
 	game->menu.txt2 = TTF_RenderText_Solid(game->menu.font, "3 cards (5 x 6)", text_clr);
 	game->menu.txt3 = TTF_RenderText_Solid(game->menu.font, "4 cards (4 x 4)", text_clr);
 
-	SDL_Color text_clr_choose_level =  {0, 102, 0, 0};
+	SDL_Color text_clr_choose_level = {0, 102, 0, 0};
 	game->menu.choose_level = TTF_RenderText_Solid(game->menu.choose_level_font, "Choose level", text_clr_choose_level);
 	
-
 	game->game_over = IMG_Load("res/pictures/game_over.jpg");
 	if (game->game_over == NULL)
 		mx_errorexit("SDL");
@@ -104,7 +101,5 @@ char **mx_list_resourses(app *game){
 	Mix_VolumeChunk(game->correct, MIX_MAX_VOLUME/10);
 
 	return (str);
-
-
 }
 

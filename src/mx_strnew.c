@@ -1,5 +1,4 @@
-#include <stddef.h>
-#include <stdlib.h>
+#include "header.h"
 
 char *mx_strnew(const int size) {
     if (size < 0)

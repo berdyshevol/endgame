@@ -21,12 +21,12 @@
 #include <SDL2_mixer/SDL_mixer.h>
 //#include "SDL_mixer.h"
 #include <time.h>
-
-
 #include <stdbool.h>
 #include <unistd.h>
 #include <errno.h>
 #include <time.h>
+#include <stddef.h>
+#include <stdlib.h>
 
 #define CARDS_ARR_NUMBER (30) // be careful with seg_fault
 #define WINDOW_WIDTH (1600)
@@ -34,15 +34,12 @@
 
 //#define OFFSET_Y (70)
 //#define OFFSET_X (50)
-
 //#define LEN_ARR (16)
 //#define OPN_CRDS_NBR (3)
 #define NUMBER_OF_PLAYERS (2)
 #define SECONDS_OPEN (3000)
 #define MENU_BTN_SIZE_X (100)
 #define MENU_BTN_SIZE_Y (100)
-
-
 #define ANIMALS (1)
 #define DISSTRS (2)
 #define FOOD (3)
@@ -51,7 +48,6 @@
 
 void mx_errorexit(char *str);
 void mx_printerror(char *str);
-
 typedef struct _Mix_Music Mix_Music;
 typedef struct Mix_Chunk Mix_Chunk;
 
@@ -64,17 +60,16 @@ typedef struct card {
 	SDL_Rect	pos;
 } cards;
 
-typedef struct  menu{
+typedef struct  menu {
 	SDL_Surface	*txt0;
 	SDL_Surface	*txt1;
 	SDL_Surface	*txt2;
 	SDL_Surface	*txt3;
-
 	SDL_Surface	*choose_level;
-	
 	TTF_Font *font;
 	TTF_Font *choose_level_font;
-} game_menu ;
+}
+game_menu ;
 
 typedef struct player {
 	int 	score;
@@ -110,23 +105,18 @@ typedef struct application {
 	bool	start_game;
 	game_menu	menu;
 	bool	game_finnished;
-
-
-
-
-} app;
+} 
+app;
 
 char *mx_strnew(const int size);
 char *mx_strcat(char *s1, const char *s2);
 int mx_strlen(const char *s);
-
 char 	**mx_list_resourses(app *game);
 void 	mx_set_start_val(app *game);
 void	mx_app_loop(app *game);
 void	mx_turn_over_card(app *game, int x, int y);
 void 	window_cards_update(app *game);
 void	players_score(app *game);
-
 void	mx_open_all_cards(app *game);
 void	mx_close_all_cards(app *game);
 bool	is_choose_level(SDL_Surface *txt, int x, int y);

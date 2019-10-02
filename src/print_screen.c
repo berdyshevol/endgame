@@ -1,9 +1,9 @@
 #include "header.h"
 
-bool	mx_is_game_over(app *game){
+bool mx_is_game_over(app *game) {
 	int count_non_print_cards = 0;
-	for (int i = 0; i < game->LEN_ARR; i++){
-		if(game->arr[i].print == false)
+	for(int i = 0; i < game->LEN_ARR; i++) {
+		if (game->arr[i].print == false)
 			count_non_print_cards++;
 	}
 	if (count_non_print_cards == game->LEN_ARR)
@@ -43,7 +43,7 @@ void window_cards_update(app *game) {
 
 	SDL_BlitSurface(game->background, NULL, game->srf, &(game->background->clip_rect));
 
-	for (int i = 0; i < game->LEN_ARR; i++){
+	for(int i = 0; i < game->LEN_ARR; i++){
 		if (game->arr[i].print == true){
 			if (game->arr[i].open == true)
 				SDL_BlitSurface(game->arr[i].face, NULL, game->srf, &game->arr[i].pos);
