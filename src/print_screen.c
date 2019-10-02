@@ -62,11 +62,13 @@ void window_cards_update(app *game) {
 	SDL_BlitSurface(game->plr[0].face, NULL, game->srf, &(game->plr[0].face->clip_rect));
 	SDL_BlitSurface(game->plr[1].face, NULL, game->srf, &(game->plr[1].face->clip_rect));
 
-	if (game->cur_plr == 0) {
-		SDL_BlitSurface(game->arrow_first, NULL, game->srf, &(game->arrow_first->clip_rect));
-	}
-	else {
-		SDL_BlitSurface(game->arrow_second, NULL, game->srf, &(game->arrow_second->clip_rect));
+	if (!game->game_finnished) {
+		if (game->cur_plr == 0) {
+			SDL_BlitSurface(game->arrow_first, NULL, game->srf, &(game->arrow_first->clip_rect));
+		}
+		else {
+			SDL_BlitSurface(game->arrow_second, NULL, game->srf, &(game->arrow_second->clip_rect));
+		}
 	}
 
 	SDL_UpdateWindowSurface(game->win);
