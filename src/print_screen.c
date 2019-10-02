@@ -43,20 +43,45 @@ void window_cards_update(app *game) {
 
 	SDL_BlitSurface(game->background, NULL, game->srf, &(game->background->clip_rect));
 
-	for(int i = 0; i < game->LEN_ARR; i++){
-		if (game->arr[i].print == true){
-			if (game->arr[i].open == true)
-				SDL_BlitSurface(game->arr[i].face, NULL, game->srf, &game->arr[i].pos);
-			else if (game->arr[i].open == false)
-				SDL_BlitSurface(game->close, NULL, game->srf, &game->arr[i].pos);
-		}
-	}
-
 	if(mx_is_game_over(game) == true) {
+	// if (true)	{
+		double dt = 0.01;
 		game->game_finnished = true;
+		game->game_over_time += dt;
+		SDL_Delay(1000 * dt);
+		//game->game_over_y += game->game_over_v * dt;
+		game->game_over_y += game->game_over_v * dt + game->game_over_a * dt * game->game_over_time;
+		//dy = game->game_over_a / 2 * game->game_over_time * game->game_over_time + game->game_over_v * game->game_over_time;
+		//y = game->game_over_v * game->game_over_time + 100;
+		
+		if (game->game_over_y > WINDOW_HEIGHT - 700){
+			game->game_over_v =-1000;// -1 * (game->game_over_a * game->game_over_time);
+			
+			game->game_over_y = WINDOW_HEIGHT - 700;
+			//printf("%f %d", game->game_over_v, game->game_over_y);
+			//exit(0);
+			//game->game_over_v = -game->game_over_v;
+		}	
+		// if (game->game_over_y < GAME_OVER_H) {
+		// 	game->game_over_v = -game->game_over_v;
+		// 	game->game_over_y = GAME_OVER_H;
+		// }
+
+		printf("y=%d v=%f t=%f\n", game->game_over_y, game->game_over_v, game->game_over_time);
+		game->game_over->clip_rect.y = game->game_over_y;
 		SDL_BlitSurface(game->game_over, NULL, game->srf, &(game->game_over->clip_rect));
 	}
-
+	else {
+		for(int i = 0; i < game->LEN_ARR; i++){
+			if (game->arr[i].print == true){
+				if (game->arr[i].open == true)
+					SDL_BlitSurface(game->arr[i].face, NULL, game->srf, &game->arr[i].pos);
+				else if (game->arr[i].open == false)
+					SDL_BlitSurface(game->close, NULL, game->srf, &game->arr[i].pos);
+			}
+		}
+	}
+	
 	SDL_BlitSurface(game->menu_btn, NULL, game->srf, &(game->menu_btn->clip_rect));
 
 	SDL_BlitSurface(game->plr[0].face, NULL, game->srf, &(game->plr[0].face->clip_rect));

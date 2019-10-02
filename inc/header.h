@@ -31,13 +31,14 @@
 #define CARDS_ARR_NUMBER (30) // be careful with seg_fault
 #define WINDOW_WIDTH (1600)
 #define WINDOW_HEIGHT (1200)
+#define GAME_OVER_H (100)
 
 //#define OFFSET_Y (70)
 //#define OFFSET_X (50)
 //#define LEN_ARR (16)
 //#define OPN_CRDS_NBR (3)
 #define NUMBER_OF_PLAYERS (2)
-#define SECONDS_OPEN (3000)
+//#define SECONDS_OPEN (3000)
 #define MENU_BTN_SIZE_X (100)
 #define MENU_BTN_SIZE_Y (100)
 #define ANIMALS (1)
@@ -87,6 +88,11 @@ typedef struct application {
 	SDL_Surface *menu_btn;
 	SDL_Surface *arrow_first;
 	SDL_Surface *arrow_second;
+
+	double game_over_v;
+	double game_over_a;
+	double game_over_time;
+	int game_over_y;
 
 	plyr	plr[NUMBER_OF_PLAYERS];
 	int		cur_plr;

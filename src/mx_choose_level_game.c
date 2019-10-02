@@ -2,6 +2,7 @@
 
 void mx_start_game(app *game) {
 	game->start_game = true;
+	game->game_finnished = false;
 	mx_set_start_val(game);
 	//---------------make open all cards before start to play
 	// mx_open_all_cards(game);

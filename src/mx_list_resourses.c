@@ -85,7 +85,10 @@ char **mx_list_resourses(app *game) {
 	SDL_Color text_clr_choose_level = {0, 102, 0, 0};
 	game->menu.choose_level = TTF_RenderText_Solid(game->menu.choose_level_font, "Choose level", text_clr_choose_level);
 	
-	game->game_over = IMG_Load("res/pictures/game_over.jpg");
+	// game->game_over = IMG_Load("res/pictures/game_over.jpg");
+	// if (game->game_over == NULL)
+	// 	mx_errorexit("SDL");
+	game->game_over = IMG_Load("res/pictures/congratulation.png");
 	if (game->game_over == NULL)
 		mx_errorexit("SDL");
 	

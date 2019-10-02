@@ -134,6 +134,14 @@ void mx_set_start_val(app *game) {
 	game->cur_plr = 0;
 	game->game_finnished = false;
 	players_score(game);
+	int max_w;
+	int max_h;
+	SDL_GetWindowSize(game->win, &max_w, &max_h);
+	game->game_over->clip_rect.x = WINDOW_WIDTH / 2 - 234;//max_w / - 234;
+	game->game_over_y = GAME_OVER_H;
+	game->game_over_v = 1000;
+	game->game_over_a = 2000;
+	game->game_over_time = 0;
 	mx_fill_arr(game);
 }
 
