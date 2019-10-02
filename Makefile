@@ -18,7 +18,7 @@ install:
 uninstall:
 	@rm -rf $(SRCS)
 	@rm -rf $(HDR)
-	@rm $(NAME)
+	@rm -rf $(NAME)
 	@rm -rf endgame.dSYM
 clean:
 	@rm -rf $(SRCS)
