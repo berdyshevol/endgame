@@ -70,7 +70,17 @@ void next_player(app *game) {
 		game->cur_plr = 0;
 }
 
+bool click_menu_btn(app *game, int x , int y) {
+	if (x >= 30 && x <= 60 && y >= 30 && y <= 60)
+		return true;
+	return false;
+}
+
 void	mx_turn_over_card(app *game, int x, int y) {
+	if (click_menu_btn(game, x , y)) {
+		game->start_game = false;
+		return;
+	}
 	mx_click_card(game, x, y);
 	window_cards_update(game);
 	if (mx_how_much_open(game) == game->OPN_CRDS_NBR){
