@@ -33,6 +33,9 @@
 #define WINDOW_HEIGHT (1200)
 #define GAME_OVER_H (100)
 
+#define CHOOSE_Y (300)
+#define txt0_y ()
+
 //#define OFFSET_Y (70)
 //#define OFFSET_X (50)
 //#define LEN_ARR (16)
@@ -69,6 +72,32 @@ typedef struct  menu {
 	SDL_Surface	*choose_level;
 	TTF_Font *font;
 	TTF_Font *choose_level_font;
+
+	bool on_txt0;
+	bool on_txt1;
+	bool on_txt2;
+	bool on_txt3;
+	bool anim;
+
+	double t0;
+	double t1;
+	double t2;
+	double t3;
+
+	int y0;
+	int y1;
+	int y2;
+	int y3;
+
+	int cy0;
+	int cy1;
+	int cy2;
+	int cy3;
+
+	double v0;
+	double v1;
+	double v2;
+	double v3;
 }
 game_menu ;
 

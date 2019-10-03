@@ -142,6 +142,9 @@ void mx_set_start_val(app *game) {
 	game->game_over_v = 1000;
 	game->game_over_a = 2000;
 	game->game_over_time = 0;
+
+	
+
 	mx_fill_arr(game);
 }
 
